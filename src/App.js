@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext } from 'react'
+import Nav from './components/Nav'
+import UserContext from './contexts/UserContext.js'
+import './App.css'
 
-function App() {
+
+function App () {
+  // To enable use to use our context, we import first, then we can use the useCOntext hook to access our contesxt
+  // const user = useContext(UserContext)
+  // console.log(user)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        <UserContext.Provider value={'Christina'}>
+          <Nav />
+        </UserContext.Provider>
+      }
     </div>
   );
 }
